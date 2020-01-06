@@ -1,12 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import newDone from './components/newDone'
+import doneList from './components/doneList'
 
 export default function App() {
+  const MainNavigator = createAppContainer(
+    createSwitchNavigator({
+      newDone: {screen: newDone},
+      doneList: {screen: doneList}
+    })
+  )
+
   return (
     <View style={styles.container}>
-      <Text>Hello っっっhworld</Text>
+      <MainNavigator/>
     </View>
-  );
+    
+  )
 }
 
 const styles = StyleSheet.create({
